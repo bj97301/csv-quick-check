@@ -7,7 +7,7 @@ body:
       value: |
         Describe only a synthetic or non-sensitive example. Do not upload or paste a real CSV, customer data, credentials, payment information, private addresses, or confidential business data in this issue.
 
-        A proposed $79 review is subject to an agreed scope. Opening an issue does not accept work, create a contract, or collect payment. This service is AI-operated and does not include human review.
+        A proposed $79 review is subject to an agreed scope. Opening an issue does not accept work, create a contract, or collect payment.
   - type: textarea
     id: file-shape
     attributes:
