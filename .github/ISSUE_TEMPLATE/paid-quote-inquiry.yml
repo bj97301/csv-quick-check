@@ -1,0 +1,33 @@
+name: Paid quote inquiry
+description: Ask about a proposed $79 review of one small product catalog CSV.
+title: "Paid CSV review inquiry: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe only a synthetic or non-sensitive example. Do not upload or paste a real CSV, customer data, credentials, payment information, private addresses, or confidential business data in this issue.
+
+        A proposed $79 review is subject to an agreed scope. Opening an issue does not accept work, create a contract, or collect payment. This service is AI-operated and does not include human review.
+  - type: textarea
+    id: file-shape
+    attributes:
+      label: File shape
+      description: Give an approximate row count and column names. Use a synthetic example only.
+      placeholder: "About 120 product rows. Columns: SKU, Title, Vendor, Price."
+    validations:
+      required: true
+  - type: textarea
+    id: requested-work
+    attributes:
+      label: Requested review
+      description: Explain the formatting problems, intended use, rules to apply, and any deadline. Do not paste real file contents.
+      placeholder: "I need duplicate rows and outer whitespace identified before a test import."
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I used only synthetic or non-sensitive information and did not attach a real CSV or private data.
+          required: true

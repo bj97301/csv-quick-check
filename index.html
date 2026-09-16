@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A local CSV Quick Check for small product catalog files.">
+  <title>CSV Quick Check</title>
+  <script type="module" src="check-ui.mjs"></script>
+  <style>
+    :root { color:#171914; background:#f5f5ef; font-family:system-ui,sans-serif; }
+    body { max-width:70rem; margin:0 auto; padding:2rem 1rem 4rem; }
+    h1 { font-size:clamp(2rem,6vw,4rem); margin-bottom:.2rem; }
+    .intro, #check-limits, .limits { max-width:65ch; line-height:1.55; }
+    .grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1.25rem; margin-top:1.5rem; }
+    label { display:block; font-weight:700; margin-bottom:.6rem; }
+    textarea { box-sizing:border-box; width:100%; min-height:20rem; padding:1rem; border:2px solid #171914; font:1rem/1.5 ui-monospace,monospace; resize:vertical; }
+    .actions { display:flex; gap:.7rem; flex-wrap:wrap; margin-top:.8rem; }
+    button { font:inherit; font-weight:700; border:1px solid #171914; padding:.75rem 1rem; background:transparent; cursor:pointer; }
+    button[type=submit] { background:#dfff00; }
+    #check-result { background:#171914; color:#fff; padding:1.25rem; min-width:0; max-height:32rem; overflow:auto; }
+    #check-result h2 { color:#dfff00; font-size:1.35rem; margin-top:0; }
+    #check-result p, #check-result li { line-height:1.5; overflow-wrap:anywhere; }
+    @media (max-width:760px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>CSV Quick Check</h1>
+    <p class="intro">Paste a non-sensitive product CSV to check its structure locally in this page. The CSV stays in your browser. The checker does not send it to a server or save it in browser storage.</p>
+    <div class="grid">
+      <form id="csv-check-form">
+        <label for="csv-input">Product CSV, including the header</label>
+        <textarea id="csv-input" maxlength="200000" spellcheck="false" autocomplete="off" aria-describedby="check-limits" placeholder="SKU,Title,Price&#10;001,Travel mug,12.00"></textarea>
+        <p id="check-limits">Up to 300 product rows, 100 columns, and 200,000 characters. Do not paste customer records, credentials, or confidential data.</p>
+        <div class="actions"><button type="submit">Check CSV</button><button type="button" id="try-csv-example">Try an example</button><button type="button" id="clear-csv">Clear</button></div>
+      </form>
+      <section id="check-result" role="status" aria-live="polite" aria-atomic="true"><h2>Ready to check</h2><p>Paste your CSV or try the fictional example.</p></section>
+    </div>
+    <p class="limits">The check looks for CSV structure problems, exact duplicate rows, blank cells, outer whitespace, repeated SKU, Variant SKU, ASIN, or ID values, and common spreadsheet formula markers. It does not verify prices or links, change your data, or certify a storefront import. Zero findings means only that these checks found nothing.</p>
+    <p class="limits">For a proposed $79 review from Bryan Joseph RowPatch Studio of one small product catalog CSV, open a paid quote inquiry. Scope must be agreed before work begins. The service is AI-operated and does not include human review, automatic acceptance, or payment collection.</p>
+    <p><a href="https://github.com/bj97301/csv-quick-check/issues/new?template=paid-quote-inquiry.yml">Open a paid quote inquiry</a></p>
+  </main>
+</body>
+</html>
